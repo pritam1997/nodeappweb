@@ -9,8 +9,22 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('<h2 style="color: purple"> Java Home Docker App<h2>');
+  res.send('<h2 style="color: purple">Node Docker App<h2>');
 });
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
+
+// db connection
+var mysql = require('mysql');
+var con = mysql.createConnection({
+        host: "172.17.0.1",
+    user: "root",
+    password: "Mysql1997$",
+    database: 'node_db'
+});
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected to the database!");
+});
+

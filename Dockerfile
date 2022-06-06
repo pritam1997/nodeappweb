@@ -1,6 +1,10 @@
-FROM node:lts-alpine
+FROM node
 WORKDIR /app
 COPY . .
 RUN npm install
-EXPOSE 8080
+RUN npm install -g nodemon
+RUN npm install express
+RUN npm install -g pm2
+EXPOSE 3000
 CMD ["node", "server.js"]
+
